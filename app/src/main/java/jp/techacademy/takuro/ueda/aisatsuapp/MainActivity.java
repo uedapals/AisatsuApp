@@ -6,15 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView mTextView;
-    EditText mEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +35,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         Log.d("UI-PARTS", String.valueOf(hourOfDay) + ":" + String.valueOf(minute));
-                        if (hourOfDay >= 2 && hourOfDay< 10){
+                        if (hourOfDay >= 2 && hourOfDay < 10){
                             mTextView.setText("「おはよう」");
                         }else if (hourOfDay >= 10 && hourOfDay < 18){
                             mTextView.setText("「こんにちは」");
-                        }else if (hourOfDay >= 18 && hourOfDay <2) {
+                        }else if (hourOfDay >= 18 || hourOfDay < 2) {
                             mTextView.setText("「こんばんは」");
                         }
                     }
